@@ -17,10 +17,15 @@ const questions = [
 ];
 
 // Function to write README file
-function writeToFile(fileName, data) {}
+function writeToFile(fileName, data) {
+    fs.writeFile(fileName,data, (err) =>
+        err ? console.error(err) : console.log('Success!\nYou will find the README file titled with the name of your project in this same directory.')
+    );
+}
 
 // Function to initialize app
 function init() {
+    // Inquirer prompt method to ask user input
     inquirer.prompt([
         {
             type:'input',
@@ -70,7 +75,8 @@ function init() {
         },
     ])
     .then((data) => {
-        console.log(data);
+        const fileName = `${data.title.toUpperCase().split(' ').join('')}-README.md`;
+        writeToFile(fileName,generateMarkdown(data));
     });
 }
 
