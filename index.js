@@ -1,7 +1,7 @@
 // Packages needed for application
 const inquirer = require('inquirer');
 const fs = require('fs');
-const generateMarkdown = require('./utils/generateMarkdown.js');
+const generateMarkdown = require('./utils/generateMarkdown');
 
 // Array of questions for user input
 const questions = [
@@ -9,10 +9,8 @@ const questions = [
     'How would you briefly describe your project?',
     'What are the steps required to install your project?',
     'How do you reccomend the user to use your project?',
-    'Did you use a license?',
     'Which license did you utilize?',
     'What are your contribution guidelines?',
-    'Would you like to provide tests for your project?',
     'Write the tests for your application and provide examples on how to run them.',
     'What is your GitHub username?',
     'What is your email?'
@@ -22,7 +20,59 @@ const questions = [
 function writeToFile(fileName, data) {}
 
 // Function to initialize app
-function init() {}
+function init() {
+    inquirer.prompt([
+        {
+            type:'input',
+            message:questions[0],
+            name:'title',
+        },
+        {
+            type:'input',
+            message:questions[1],
+            name:'description',
+        },
+        {
+            type:'input',
+            message:questions[2],
+            name:'installation',
+        },
+        {
+            type:'input',
+            message:questions[3],
+            name:'usage',
+        },
+        {
+            type:'list',
+            message:questions[4],
+            name:'license',
+            choices:['License 1','License 2','License 3'],
+        },
+        {
+            type:'input',
+            message:questions[5],
+            name:'contribution',
+        },
+        {
+            type:'input',
+            message:questions[6],
+            name:'tests'
+        },
+        {
+            type:'input',
+            message:questions[7],
+            name:'username',
+        },
+        {
+            type:'input',
+            message:questions[8],
+            name:'email',
+        },
+    ])
+    .then((data) => {
+        console.log(data);
+    });
+}
 
 // Function call to initialize app
 init();
