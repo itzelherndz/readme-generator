@@ -33,11 +33,11 @@ function renderLicenseLink(license) {
 function renderLicenseSection(license) {
   switch (license){
     case `MIT License`:
-      return `This application is covered by the [MIT License](${renderLicenseLink(license)})`;
+      return `This application is covered by the [MIT License](${renderLicenseLink(license)}).`;
     case 'Apache License 2.0':
-      return `This application is covered by the [Apache License 2.0](${renderLicenseLink(license)})`;
+      return `This application is covered by the [Apache License 2.0](${renderLicenseLink(license)}).`;
     case 'GNU GPLv3':
-      return `This application is covered by the [GNU GPLv3 License](${renderLicenseLink(license)})`;
+      return `This application is covered by the [GNU GPLv3 License](${renderLicenseLink(license)}).`;
     default:
       return '';
   }
@@ -60,8 +60,8 @@ function generateMarkdown(data) {
 ## Contributing\n${data.contributing}\n
 ## Tests\n${data.tests}\n
 ## Questions\nFor any questions please contact me via:\n
-GitHub: ${data.username}\n
-Email: ${data.email}`;
+GitHub: [${data.username}](https://github.com/${data.username})\n
+Email: [${data.email}](${data.email})`;
 }
 
 module.exports = generateMarkdown;

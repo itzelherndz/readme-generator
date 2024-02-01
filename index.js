@@ -18,8 +18,8 @@ const questions = [
 
 // Function to write README file
 function writeToFile(fileName, data) {
-    fs.writeFile(fileName,data, (err) =>
-        err ? console.error(err) : console.log('Success!\nYou will find the README file titled with the name of your project in this same directory.')
+    fs.writeFile(fileName,generateMarkdown(data), (err) =>
+        err ? console.error(err) : console.log(`Success!\nYou will find the README file in the ${data.title.split(' ').join('')} folder.`)
     );
 }
 
@@ -75,8 +75,12 @@ function init() {
         },
     ])
     .then((data) => {
-        const fileName = `${data.title.toUpperCase().split(' ').join('')}-README.md`;
-        writeToFile(fileName,generateMarkdown(data));
+        const dir = `./${data.title.split(' ').join('')}`;
+        if(!fs.existsSync(dir)){
+            fs.mkdirSync(dir);
+        }
+        const fileName = `./${data.title.split(' ').join('')}/README.md`;
+        writeToFile(fileName,data);
     });
 }
 
