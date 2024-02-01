@@ -51,12 +51,12 @@ function init() {
             type:'list',
             message:questions[4],
             name:'license',
-            choices:['License 1','License 2','License 3'],
+            choices:['MIT License','Apache License 2.0','GNU GPLv3','Other/None'],
         },
         {
             type:'input',
             message:questions[5],
-            name:'contribution',
+            name:'contributing',
         },
         {
             type:'input',
