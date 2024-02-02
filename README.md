@@ -11,6 +11,8 @@ The README Generator application allows the user to create a README.md file for 
 
 ### [License](#license)
 
+### [Credits](#credits)
+
 ### [Contributing](#contributing)
 
 ### [Tests](#tests)
@@ -27,6 +29,9 @@ Once the user has initiated the README Generator on their computer, the user wil
 
 ## License
 This application is covered by the [MIT License](https://opensource.org/licenses/MIT).
+
+## Credits
+Starter Code: https://github.com/coding-boot-camp/potential-enigma
 
 ## Contributing
 To contribute to this project, feel free to contact me via my GitHub page or email provided in the section titled Questions. 
